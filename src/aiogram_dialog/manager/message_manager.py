@@ -164,7 +164,7 @@ class MessageManager(MessageManagerProtocol):
                 new_message.show_mode,
                 bool(old_message),
             )
-            await self._remove_kbd(bot, old_message, new_message)
+            # await self._remove_kbd(bot, old_message, new_message)
             return _combine(
                 new_message,
                 await self.send_message(bot, new_message),
