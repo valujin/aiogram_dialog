@@ -42,19 +42,20 @@ class IntentMiddlewareFactory:
         return proxy
 
     def _check_outdated(self, intent_id: str, stack: Stack):
+        print(intent_id, stack.last_intent_id())
         """Check if intent id is outdated for stack."""
-        if stack.empty():
-            raise OutdatedIntent(
-                stack.id,
-                f"Outdated intent id ({intent_id}) "
-                f"for stack ({stack.id})",
-            )
-        elif intent_id != stack.last_intent_id():
-            raise OutdatedIntent(
-                stack.id,
-                f"Outdated intent id ({intent_id}) "
-                f"for stack ({stack.id})",
-            )
+        # if stack.empty():
+        #     raise OutdatedIntent(
+        #         stack.id,
+        #         f"Outdated intent id ({intent_id}) "
+        #         f"for stack ({stack.id})",
+        #     )
+        # elif intent_id != stack.last_intent_id():
+        #     raise OutdatedIntent(
+        #         stack.id,
+        #         f"Outdated intent id ({intent_id}) "
+        #         f"for stack ({stack.id})",
+        #     )
 
     async def _load_context(
             self,
